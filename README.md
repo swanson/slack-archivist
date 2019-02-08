@@ -1,10 +1,10 @@
 ## Slack Archivist
 
-A Slack integration to automatically tidy up your stale channels.
+A Slack integration to automatically tidy up your stale channels
 
 ### Why bother to achive channels? Aren't they free? #ChannelsAreFree
 
-It's fine to make new channels whenever you want. But at some point, the discussion in a channel might reach a natural conclusion -- especially for time-bound situations like a specific project, initiative, or company event (I'm looking at your #company-picnic-2015...).
+It's fine to make new channels whenever you want. But at some point, the discussion in a channel might reach a natural conclusion -- especially for time-bound situations like a specific project, initiative, or company event (I'm looking at you #company-picnic-2015...).
 
 Having a bunch of inactive channels clutters up the Channel search list in Slack. If you're looking for a place to have a discussion or ask a question, you don't want to have to wade through 50+ zombie channels to find the right one.
 
