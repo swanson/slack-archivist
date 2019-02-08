@@ -4,7 +4,7 @@ class Archivist
 
     Archiving a channel removes it from the list of active channels. But don't worry, all of the messages are saved and searchable! :floppy_disk: :mag:
 
-    Keep Slack tidy makes it easier for people to find relevant discussions happening in active channels and is a nice reminder that Slack is not a place for long-term storage of project assets. :file_cabinet: :fire:
+    Keeping Slack tidy makes it easier for people to find relevant discussions happening in active channels and is a nice reminder that Slack is not a place for long-term storage of project assets. :file_cabinet: :fire:
 
     I'm just a dumb :robot_face:, so if you want to keep this channel open, post ANYTHING in this channel in the next week and I'll reset the timer.
   HEREDOC
