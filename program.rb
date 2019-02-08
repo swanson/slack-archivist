@@ -1,6 +1,9 @@
 require 'dotenv'
 Dotenv.load
 
+require "bundler"
+Bundler.require(:default)
+
 require_relative "./archivist"
 
 Slack.configure do |config|
@@ -9,4 +12,6 @@ end
 
 client = Slack::Web::Client.new
 
-Archivist.new(client).run!
+Archivist.new(client, {
+  username: ENV['BOT_USERNAME']
+}).run!
