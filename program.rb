@@ -17,6 +17,8 @@ if ENV['PRODUCTION'] == true
   dry_run = false
 end
 
+puts "Running clean-up for #{Date.today}. Dry run flag: #{dry_run}..."
+
 Archivist.new(client, {
   username: ENV['BOT_USERNAME']
 }).run!(dry_run)
