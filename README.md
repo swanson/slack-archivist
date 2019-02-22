@@ -19,3 +19,7 @@ Anyone in the channel can "bump" the timer by posting anything in the channel.
 After a one-week grace period, if no new messages have been posted, the channel will be archived.
 
 Messages in archived channels are saved and still show up in search results. And if you find that you want the channel to be restored, you can easily un-archive it and pretend like nothing happened.
+
+### What if I accidentally say something to reset the timer but I really want to archive the channel?
+
+Good news! You can still archive the channel manually in Slack. :)
