@@ -14,32 +14,35 @@ class Archivist
     @bot_username = options[:username]
   end
 
-  def run!(dry_run: true)
-    all_channels.sample(5).each do |channel|
+  def run!(dry_run = true)
+    all_channels.first(20).each do |channel|
       puts "\n\n#" + channel.name
       msg = most_recent_message_in(channel.id)
 
-      last_msg_at = time_from_ts(msg)
+      last_msg_at = time_from_ts(msg.ts)
       puts "Last message: %s" % last_msg_at
+      puts "Channel created: %s" % time_from_ts(channel.created)
 
       if from_archivist?(msg) && warning_period_expired?(last_msg_at)
         puts "Archive channel!"
-        archive_channel! unless dry_run
+        archive_channel!(channel.id) unless dry_run
         next
       end
 
       if stale?(last_msg_at)
         puts "Stale channel detected."
         puts "Post the warning message!"
-        post_warning! unless dry_run
+        post_warning!(channel.id) unless dry_run
       end
+
+      sleep(1)
     end
   end
 
   private
 
   def all_channels
-    @all_channels ||= @client.channels_list(exclude_archived: true).channels
+    @all_channels ||= @client.channels_list(exclude_archived: true).channels.sort_by{|c| c.created}
   end
 
   def most_recent_message_in(channel_id)
@@ -67,21 +70,21 @@ class Archivist
     last_msg < 1.week.ago
   end
 
-  def time_from_ts(msg)
-    Time.at(msg.ts.to_i)
+  def time_from_ts(ts)
+    Time.at(ts.to_i)
   end
 
-  def post_warning!
+  def post_warning!(channel_id)
     @client.chat_postMessage(
-      channel: "CG2TGV3LN",
+      channel: channel_id,
       text: WARNING,
       username: @bot_username
     )
   end
 
-  def archive_channel!
+  def archive_channel!(channel_id)
     @client.channels_archive({
-      channel: "CG2TGV3LN"
+      channel: channel_id
     })
   end
 end
