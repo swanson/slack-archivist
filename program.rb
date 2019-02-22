@@ -13,7 +13,7 @@ end
 client = Slack::Web::Client.new
 
 dry_run = true
-if ENV['PRODUCTION'] == "true"
+if ENV['ARCHIVIST_ENV'] == "production"
   dry_run = false
 end
 
