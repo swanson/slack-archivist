@@ -1,6 +1,6 @@
 class Archivist
   WARNING = <<~HEREDOC
-    :wave: Hello, very quiet channel. It looks like there was been no discussion in this channel for at least six months so it is scheduled to be *Archived*. :recycle:
+    :wave: Hello, very quiet channel. It looks like there has been no discussion in this channel for at least six months so it is scheduled to be *Archived*. :recycle:
 
     Archiving a channel removes it from the list of active channels. But don't worry, all of the messages are saved and searchable! :floppy_disk: :mag:
 
