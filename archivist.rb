@@ -15,7 +15,7 @@ class Archivist
   end
 
   def run!(dry_run = true)
-    all_channels.first(20).each do |channel|
+    all_channels.each do |channel|
       puts "\n\n#" + channel.name
       msg = most_recent_message_in(channel.id)
 
