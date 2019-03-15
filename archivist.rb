@@ -18,10 +18,21 @@ class Archivist
     all_channels.each do |channel|
       puts "\n\n#" + channel.name
       msg = most_recent_message_in(channel.id)
+      channel_created = time_from_ts(channel.created)
+
+      if msg.nil? # No message ever posted...
+        if stale?(channel_created)
+          puts "Stale channel (no messages) detected."
+          puts "Post the warning message!"
+          post_warning!(channel.id) unless dry_run
+        end
+
+        next
+      end
 
       last_msg_at = time_from_ts(msg.ts)
       puts "Last message: %s" % last_msg_at
-      puts "Channel created: %s" % time_from_ts(channel.created)
+      puts "Channel created: %s" % channel_created
 
       if from_archivist?(msg) && warning_period_expired?(last_msg_at)
         puts "Archive channel!"
